@@ -10,7 +10,7 @@ public class startScreen extends JFrame  {
 
 	public static void main(String[] args) {
 		JFrame frame1 = new JFrame("Menu");
-		JFrame frame2 = new JFrame("Arkanoid");
+		JFrame frame2 = new JFrame("Air Hockey");
 		JFrame frame3 = new JFrame("Help");
 		JFrame frame4 = new JFrame("About");
 		JFrame frame6 = new JFrame("Options");
