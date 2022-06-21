@@ -22,7 +22,7 @@ public class startScreen extends JFrame  {
 		ActionListener start = new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				
-				Screen ekran = new Screen("Arkanoid");				
+				Screen ekran = new Screen("Air Hockey");				
 				ekran.setResizable(false);
 				ekran.setFocusable(false);					
 				ekran.setSize(750 , 1000);				
