@@ -1,5 +1,5 @@
 # Air-Hockey-Game-
-Air Hockey Game  developed with Java
+Two-Player Air Hockey Game  developed with Java
 
 
 
