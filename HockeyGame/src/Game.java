@@ -35,14 +35,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.Timer;
-
 //import TimeCounter.DisplayCountdown;
-
 //import java.util.Timer;
 import java.util.TimerTask;
-
-
 import java.util.TimerTask;
+
+
 
 
 
@@ -51,7 +49,7 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 	javax.swing.Timer timer = new Timer(1, this);
 	private BufferedImage paddleImage , paddleImage1 , Ball , background;	
 	
-   public boolean upt , downt , leftt ,rightt , at , wt , st, dt;
+   public boolean upt , downt , leftt ,rightt , at , wt , st, dt;  // booleans for multiple key presses
 
 	public static int lives = 3;
 	public static int scorePlayer1 = 0;
@@ -63,20 +61,16 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 	public int en = 70;
 	public int boy = 32;
 	
-	
 	private int topY = 200;
 	private int topX = 10;
 	public static int topdirY = 8;
 	public static int topdirX =8;
-		
-	
-	
+			
 	private int paddleY1 = 100;
 	private int dirPaddleY1 = 25;
 	private int paddleX1 = 400;
 	private int dirPaddleX1 = 25;
-	
-	
+		
 	private int paddleY2 = 800;
 	private int dirPaddleY2 = 25;	
 	private int paddleX2 = 400;
@@ -114,29 +108,21 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 		 setBackground(Color.DARK_GRAY) ;
 		 
 		 timer.start();	
-		 
-		 
+		 		 
 	}	
 	
-	 class DisplayCountdown extends TimerTask {
-
+	 class DisplayCountdown extends TimerTask { // The time counter
+ 
          static int seconds = 90;
          public void run() {
               if (seconds > 0) {
         
                  seconds--;
-              } else {
-
-               
-               
+              } else {                           
              }    
        }
   }     
-	 
-	 
-	
-	
-	
+	 	
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);		
@@ -144,9 +130,7 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 		g.drawImage(background, -3 , -3 ,740 , 964 , this);
 
 		g.drawImage(Ball  ,topX , topY  ,50 , 50, this );
-		
-		
-		
+			
 		g.drawImage(paddleImage ,paddleX1 , paddleY1 ,100 , 50, this );
 		g.drawImage(paddleImage1 ,paddleX2 , paddleY2 ,103 , 53, this );
 
@@ -164,6 +148,7 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 		g.drawString(" " + DisplayCountdown.seconds , 15, 470);
 		
 		
+		
 		if(DisplayCountdown.seconds == 0) {
 			if(scorePlayer1 == scorePlayer2) {
 				g.setFont(new Font("Times New Roman" , Font.PLAIN , 90));
@@ -175,14 +160,12 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 				g.setColor(Color.red);
 				g.drawString("              RED WON ! ", 40, 450);
 			}
-          else if (scorePlayer1 < scorePlayer2){
-        	  g.setFont(new Font("Times New Roman" , Font.PLAIN , 60));
-      		g.setColor(Color.blue);
-        	  g.drawString("             BLUE  WON ! ", 40, 450);
-			}
-			
-			timer.stop();
-			
+                        else if (scorePlayer1 < scorePlayer2){
+        	                g.setFont(new Font("Times New Roman" , Font.PLAIN , 60));
+      		                g.setColor(Color.blue);
+        	                g.drawString("             BLUE  WON ! ", 40, 450);
+			}		
+			timer.stop();			
 		}
 		
 
@@ -227,19 +210,19 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 	            }else {
 	                paddleX2  =paddleX2 -dirPaddleX2 /4;
 	            }   }
-	       if(dt== true) { 
+	         if(dt== true) { 
 	            if(paddleX2 >= 615) {
 	                paddleX2 =615 ;
 	            }        else {
 	                paddleX2  = paddleX2 +dirPaddleX2 / 4;} }     
-	     if(wt== true) {   
+	         if(wt== true) {   
 	            if(paddleY2 <= 490) {
 	                paddleY2 =490 ;
 	            }      
-	     else {
+	         else {
 	                paddleY2  = paddleY2 - dirPaddleY2 /4;}
 	        }
-	        if(st== true) { 
+	         if(st== true) { 
 	            if(paddleY2 >= 865) {
 	                paddleY2 =865 ;
 	            }        else {
@@ -251,22 +234,17 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 	    		if(topX >= 200  && topX <=540 ) {
 	    			scorePlayer2 += 1;
 	    			 topY = 200;
-	    			 topX = 30;
-	    			 
-	    		}
-	    		}
+	    			 topX = 30;	 
+	    		}}
 	    		
 	    		if(topY  >=  885 ) {
 	    			if(topX >= 200  && topX <=530 ) {
-	    				scorePlayer1 += 1;
-	    			 topY = 200;
-	    				 topX = 30;
-	    				
-	    			}
-	    			}
-	        
-	        
-	        
+	    		          scorePlayer1 += 1;
+	    			  topY = 200;
+	    			  topX = 30;
+					
+	    				}}
+      
 	}
 	@Override
 	public void repaint() {
@@ -331,42 +309,36 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 		topY += topdirY;
 		topX += topdirX;
 		
-		if(topY >=890 ) {	 			
+		if(topY >=890 ) {	 //edge			
 			topdirY =-topdirY; 
 		}
 		
 		if(topY <= 10  ) {
-			topdirY =-topdirY; //kenar
+			topdirY =-topdirY; //edge
 		}
 	
-		if(topX >= 665 ) {   //kenar 
+		if(topX >= 665 ) {   //edge
 		 topdirX =-topdirX;
 			}
 		
-		if(topX <= 10  ) {  //kenar 
+		if(topX <= 10  ) {  //edge
 		 topdirX =-topdirX;
 		}
 		
 		
-		if(topX <= paddleX1 +100  ) {
+		if(topX <= paddleX1 +100  ) {   // paddle
 			if(topX >= paddleX1 - 60  ) {
 				if( topY <= paddleY1 +50  ) {
 					if (topY >= paddleY1 -50) {
-			
-	
 			topdirY =-topdirY;
 		}}}}
 		
-		if(topX <= paddleX2 +100  ) {
+		if(topX <= paddleX2 +100  ) {               // paddle
 			if(topX >= paddleX2 - 60  ) {
 				if( topY <= paddleY2 +50  ) {
 					if (topY >= paddleY2 -50) {		
 			topdirY =-topdirY;
 		}}}}
-		
-		
-		
-		
 		
 		//---------------------------------			
 			repaint();
@@ -374,13 +346,5 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 				timer.stop();			
 
 			            }
-			
-			
-			
-			
-			
-			           
-			        }
-
-
+		        }
 }
