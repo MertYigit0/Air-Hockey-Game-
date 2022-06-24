@@ -42,8 +42,6 @@ import java.util.TimerTask;
 
 
 
-
-
 public class Game extends JPanel implements KeyListener , ActionListener  {
 
 	javax.swing.Timer timer = new Timer(1, this);
@@ -75,16 +73,13 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 	private int dirPaddleY2 = 25;	
 	private int paddleX2 = 400;
 	private int dirPaddleX2 = 25;
-	
-	
+		
 	java.util.Timer timer1;
 	
-
 	public Game() {
 		   timer1 = new java.util.Timer();
 	        timer1.schedule(new DisplayCountdown(), 0, 1000);
-	
-		
+			
 		try {
 		paddleImage = ImageIO.read(new FileImageInputStream(new File("paddle.png")));
 		}catch(IOException ex){
@@ -229,7 +224,7 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 	                paddleY2  = paddleY2 + dirPaddleY2 /4;}
 	        }
 	        
-	  //-----------------------      
+	  //------------------------------------------------------     
 	        if(topY  <= 10 ) {
 	    		if(topX >= 200  && topX <=540 ) {
 	    			scorePlayer2 += 1;
@@ -340,7 +335,7 @@ public class Game extends JPanel implements KeyListener , ActionListener  {
 			topdirY =-topdirY;
 		}}}}
 		
-		//---------------------------------			
+		//-----------------------------------------------------			
 			repaint();
 			if(scorePlayer1 == 5  ||  scorePlayer2 == 5 ) {
 				timer.stop();			
